@@ -39,6 +39,3 @@
 | address_id         | string              | null: false             |
 | item_id            | string              | null: false             |
 
-
-
-
