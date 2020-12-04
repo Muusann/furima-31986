@@ -28,7 +28,7 @@
 |--------------------|---------------------|-------------------------|
 | user_id            | string              | null: false             |
 | post_code          | string              | null: false             |
-| prefecture         | test              | null: false             |
+| prefecture         | test              | null: false               |
 | municipalitie      | text                | null: false             |
 
 ## purchase
