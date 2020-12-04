@@ -39,3 +39,5 @@
 | user_id    | string     | foreign_key: true              |
 | items_id   | string     | foreign_key: true              |
 | address_id | string     | foreign_key: true              |
+
+
