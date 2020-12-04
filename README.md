@@ -1,24 +1,42 @@
-# README
+# DB 設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users table
 
-Things you may want to cover:
+| Column             | Type                | Options                 |
+|--------------------|---------------------|-------------------------|
+| email              | string              | null: false             |
+| password           | string              | null: false             |
+| name               | string              | null: false             |
+| nickname           | string              |null: false
+| profile            | text                | null: false             |
+| occupation         | text                | null: false             |
+| position           | text                | null: false             |
 
-* Ruby version
+## items
 
-* System dependencies
+| Column             | Type                | Options                 |
+|--------------------|---------------------|-------------------------|
+| item               | string              | null: false             |
+| price              | integer             | null: false             |
+| detail             | text                | null: false             |
+| title              | text                | null: false             |
+| image              | string              | null: false             |
 
-* Configuration
+## address
 
-* Database creation
+| Column             | Type                | Options                 |
+|--------------------|---------------------|-------------------------|
+| user_id            | string              | null: false             |
+| post_code          | string              | null: false             |
+| prefecture         | test                | null: false             |
+| municipalitie      | text                | null: false             |
 
-* Database initialization
+## purchase
 
-* How to run the test suite
+| Column             | Type                | Options                 |
+|--------------------|---------------------|-------------------------|
+| user_id            | string              | null: false             |
+| address_id         | string              | null: false             |
+| item_id            | string              | null: false             |
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
