@@ -2,7 +2,6 @@
 
 ## users table
 
-
 | Column             | Type                | Options                 |
 |--------------------|---------------------|-------------------------|
 | email              | string              | null: false             |
@@ -15,8 +14,6 @@
 
 ## items
 
-
-
 | Column             | Type                | Options                 |
 |--------------------|---------------------|-------------------------|
 | item               | string              | null: false             |
@@ -25,10 +22,7 @@
 | title              | text                | null: false             |
 | image              | string               | null: false             |
 
-
-
 ## address
-
 
 | Column             | Type                | Options                 |
 |--------------------|---------------------|-------------------------|
@@ -36,8 +30,6 @@
 | post_code          | string              | null: false             |
 | prefecture         | test              | null: false             |
 | municipalitie      | text                | null: false             |
-
-
 
 ## purchase
 
