@@ -15,7 +15,6 @@
 * has_many :purchase
 * has_one  :addresses
 
-
 ## items
 
 | Column             | Type                | Options                 |
@@ -32,9 +31,6 @@
 - belongs_to :users
 * has_one    :addresses
 * has_one    :purchase
-
-
-
 
 ## addresses
 
@@ -53,9 +49,6 @@
 * belongs_to :users
 * belongs_to :addresses
 * has_one    :purchase
-
-
-
 
 ## purchase
 
