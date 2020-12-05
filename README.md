@@ -5,31 +5,57 @@
 | Column             | Type                | Options                 |
 |--------------------|---------------------|-------------------------|
 | email              | string              | null: false             |
-| password           | string              | null: false             |
+| encrypted_password | string              | null: false             |
 | name               | string              | null: false             |
-| nickname           | string              |null: false
-| profile            | text                | null: false             |
-| occupation         | text                | null: false             |
-| position           | text                | null: false             |
+| birth_day          | string              | null: false             |
+
+### Associatiln
+
+* has_many :items
+* has_many :purchase
+* has_one  :addresses
+
 
 ## items
 
 | Column             | Type                | Options                 |
 |--------------------|---------------------|-------------------------|
-| item               | string              | null: false             |
-| price              | integer             | null: false             |
-| detail             | text                | null: false             |
-| title              | text                | null: false             |
-| image              | string              | null: false             |
+| item_name          | string              | null: false             |
+| category           | string              | null: false             |
+| condition          | string              | null: false             |
+| delivery_date      | text                | null: false             |
+| user_id            | string              | foreign_key: true       |
+| address_id         | string              | foreign_key: true       |
 
-## address
+### Association
+
+- belongs_to :users
+* has_one    :addresses
+* has_one    :purchase
+
+
+
+
+## addresses
 
 | Column             | Type                | Options                 |
 |--------------------|---------------------|-------------------------|
-| user_id            | string              | null: false             |
+| user_id            | string              | foreign_key: true       |
 | post_code          | string              | null: false             |
-| prefecture         | test                | null: false             |
-| municipalitie      | text                | null: false             |
+| phone_number       | integer             | null: false             |
+| prefecture         | string              | null: false             |
+| municipalitie      | string              | null: false             |
+| address_number     | string              | null: false             |
+| building           | string              | null: false             |
+
+### Association
+
+* belongs_to :users
+* belongs_to :addresses
+* has_one    :purchase
+
+
+
 
 ## purchase
 
@@ -39,4 +65,8 @@
 | address_id         | string              | null: false             |
 | item_id            | string              | null: false             |
 
+### Association
 
+* belongs_to :users
+* belongs_to :items
+* belongs_to :addresses
