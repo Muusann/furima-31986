@@ -7,37 +7,43 @@
 | email              | string              | null: false             |
 | encrypted_password | string              | null: false             |
 | name               | string              | null: false             |
-| birth_day          | string              | null: false             |
+| nick_name          | string              |                         |
+| first_name         | string              | null: false             |
+| last_name          | string              | null: false             |
+| birth_day          | integer             | null: false             |
 
 ### Associatiln
 
-* has_many :items
+* has_many :item
 * has_many :purchase
-* has_one  :addresses
+* has_one  :address
 
 ## items
 
-| Column             | Type                | Options                 |
-|--------------------|---------------------|-------------------------|
-| item_name          | string              | null: false             |
-| category           | string              | null: false             |
-| condition          | string              | null: false             |
-| delivery_date      | text                | null: false             |
-| user_id            | string              | foreign_key: true       |
-| address_id         | string              | foreign_key: true       |
+| Column              | Type                | Options                 |
+|---------------------|---------------------|-------------------------|
+| item_name_id        | integer             | null: false             |
+| category_id         | integer             | null: false             |
+| condition-id        | integer             | null: false             |
+| item_description    | string              | null: false             |
+| price               | integer             | null: false             |
+| delivery_date       | string              | null: false             |
+| delivery_fee        | string              | null: false             |
+| delivery_prefecture | string              | null: false             |
+| delivery_guide      | string              | null: false             |
+| user_id             | integer             | foreign_key: true       |
 
 ### Association
 
-- belongs_to :users
-* has_one    :addresses
+* belongs_to :user
 * has_one    :purchase
 
 ## addresses
 
 | Column             | Type                | Options                 |
 |--------------------|---------------------|-------------------------|
-| user_id            | string              | foreign_key: true       |
-| post_code          | string              | null: false             |
+| purchase_id        | integer             | foreign_key: true       |
+| post_code          | integer             | null: false             |
 | phone_number       | integer             | null: false             |
 | prefecture         | string              | null: false             |
 | municipalitie      | string              | null: false             |
@@ -46,21 +52,19 @@
 
 ### Association
 
-* belongs_to :users
-* belongs_to :addresses
-* has_one    :purchase
+* belongs_to :item
+* belongs_to :purchase
 
 ## purchase
 
-| Column             | Type                | Options                 |
-|--------------------|---------------------|-------------------------|
-| user_id            | string              | null: false             |
-| address_id         | string              | null: false             |
-| item_id            | string              | null: false             |
+| Column             | Type                 | Options                       |
+|--------------------|----------------------|-------------------------------|
+| user_id            | integer              | foreign_key: true             |
+| item_id            | integer              | foreign_key: true             |
 
 ### Association
 
-* belongs_to :users
-* belongs_to :items
-* belongs_to :addresses
+* belongs_to :user
+* belongs_to :item
+* has_one    :address
 
