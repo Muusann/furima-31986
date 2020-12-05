@@ -11,12 +11,15 @@
 | first_name         | string              | null: false             |
 | last_name          | string              | null: false             |
 | birth_day          | integer             | null: false             |
+| phone_number       | integer             | null: false             |
 
 ### Associatiln
 
 * has_many :item
 * has_many :purchase
 * has_one  :address
+
+
 
 ## items
 
@@ -38,6 +41,8 @@
 * belongs_to :user
 * has_one    :purchase
 
+
+
 ## addresses
 
 | Column             | Type                | Options                 |
@@ -54,6 +59,8 @@
 
 * belongs_to :item
 * belongs_to :purchase
+
+
 
 ## purchase
 
