@@ -25,7 +25,7 @@
 
 | Column                 | Type                | Options                        |
 |------------------------|---------------------|--------------------------------|
-| item_name_id           | integer             | null: false                    |
+| item_name              | string              | null: false                    |
 | category_id            | integer             | null: false                    |
 | condition_id           | integer             | null: false                    |
 | item_description       | string              | null: false                    |
@@ -33,7 +33,6 @@
 | delivery_date_id       | integer             | null: false                    |
 | delivery_fee_id        | integer             | null: false                    |
 | delivery_prefecture_id | integer             | null: false                    |
-| delivery_guide         | string              | null: false                    |
 | user_id                | integer             | null: false, foreign_key: true |
 
 ### Association
@@ -45,20 +44,19 @@
 
 ## addresses
 
-| Column             | Type                | Options                              |
-|--------------------|---------------------|--------------------------------------|
-| purchase_id        | integer             | null: false, foreign_key: true       |
-| post_code          | string              | null: false                          |
-| phone_number       | string              | null: false                          |
-| prefecture_id      | integer             | null: false                          |
-| municipalitie      | string              | null: false                          |
-| address_number     | string              | null: false                          |
-| building           | string              |                                      |
+| Column                 | Type                | Options                              |
+|------------------------|---------------------|--------------------------------------|
+| purchase_id            | integer             | null: false, foreign_key: true       |
+| post_code              | string              | null: false                          |
+| phone_number           | string              | null: false                          |
+| prefecture_id          | integer             | null: false                          |
+| delivery_prefecture_id | integer             | null: false                          |
+| address_number         | string              | null: false                          |
+| building               | string              |                                      |
 
 ### Association
 
 * belongs_to :item
-* belongs_to :purchase
 
 
 
