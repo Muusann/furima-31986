@@ -70,3 +70,4 @@
 * belongs_to :users
 * belongs_to :items
 * belongs_to :addresses
+
