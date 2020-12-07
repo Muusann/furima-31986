@@ -17,7 +17,6 @@
 
 * has_many :items
 * has_many :purchase
-* has_one  :address
 
 
 
@@ -25,14 +24,14 @@
 
 | Column                 | Type                | Options                        |
 |------------------------|---------------------|--------------------------------|
-| item_name              | string              | null: false                    |
+| name                   | string              | null: false                    |
 | category_id            | integer             | null: false                    |
 | condition_id           | integer             | null: false                    |
 | item_description       | string              | null: false                    |
 | price                  | integer             | null: false                    |
 | delivery_date_id       | integer             | null: false                    |
 | delivery_fee_id        | integer             | null: false                    |
-| delivery_prefecture_id | integer             | null: false                    |
+| prefecture_id          | integer             | null: false                    |
 | user_id                | integer             | null: false, foreign_key: true |
 
 ### Association
@@ -50,17 +49,16 @@
 | post_code              | string              | null: false                          |
 | phone_number           | string              | null: false                          |
 | prefecture_id          | integer             | null: false                          |
-| delivery_prefecture_id | integer             | null: false                          |
 | address_number         | string              | null: false                          |
 | building               | string              |                                      |
 
 ### Association
 
-* belongs_to :item
+* belongs_to :addresses
 
 
 
-## purchase
+## purchases
 
 | Column             | Type                 | Options                        |
 |--------------------|----------------------|--------------------------------|
