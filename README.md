@@ -55,7 +55,6 @@
 
 ### Association
 
-* has_one    :items
 * belongs_to :purchases
 
 
