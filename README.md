@@ -11,7 +11,7 @@
 | last_name          | string              | null: false             |
 | first_name_f       | string              | null: false             |
 | last_name_f        | string              | null: false             |
-| birth_day          | datetime            | null: false             |
+| birth_day          | date                | null: false             |
 
 ### Associatiln
 
@@ -27,7 +27,7 @@
 | name                   | string              | null: false                    |
 | category_id            | integer             | null: false                    |
 | condition_id           | integer             | null: false                    |
-| item_description       | string              | null: false                    |
+| item_description       | text                | null: false                    |
 | price                  | integer             | null: false                    |
 | delivery_date_id       | integer             | null: false                    |
 | delivery_fee_id        | integer             | null: false                    |
@@ -51,10 +51,12 @@
 | prefecture_id          | integer             | null: false                          |
 | address_number         | string              | null: false                          |
 | building               | string              |                                      |
+| municipalities         | string              | null: false                          |
 
 ### Association
 
-* belongs_to :addresses
+* has_one    :items
+* belongs_to :purchases
 
 
 
