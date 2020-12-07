@@ -16,7 +16,7 @@
 ### Associatiln
 
 * has_many :items
-* has_many :purchase
+* has_many :purchases
 
 
 
@@ -27,7 +27,7 @@
 | name                   | string              | null: false                    |
 | category_id            | integer             | null: false                    |
 | condition_id           | integer             | null: false                    |
-| item_description       | text                | null: false                    |
+| description            | text                | null: false                    |
 | price                  | integer             | null: false                    |
 | delivery_date_id       | integer             | null: false                    |
 | delivery_fee_id        | integer             | null: false                    |
@@ -55,7 +55,7 @@
 
 ### Association
 
-* belongs_to :purchases
+* belongs_to :purchase
 
 
 
