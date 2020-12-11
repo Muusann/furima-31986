@@ -21,4 +21,6 @@ class User < ApplicationRecord
   with_options presence: true, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{6,100}+\z/i } do
   validates :password
   end
+
+  validates :birth_day, presence: true
 end

@@ -47,5 +47,47 @@ RSpec.describe User, type: :model do
       user.valid?
       expect(user.errors.full_messages).to include "Password confirmation doesn't match Password"
     end
+    it "名字が空では登録できない" do
+      user = FactoryBot.build(:user)
+      user.last_name = ""
+      user.valid?
+      expect(user.errors.full_messages).to include "Last name can't be blank"
+    end
+    it "名前が空では登録できない" do
+      user = FactoryBot.build(:user)
+      user.first_name = ""
+      user.valid?
+      expect(user.errors.full_messages).to include "First name can't be blank"
+    end
+    it "名字が全角でないと登録できない" do
+      user = FactoryBot.build(:user)
+      user.last_name = "kawakami"
+      user.valid?
+      expect(user.errors.full_messages).to include "Last name is invalid"
+    end
+    it "名前が全角でないと登録できない" do
+      user = FactoryBot.build(:user)
+      user.first_name = "youhei"
+      user.valid?
+      expect(user.errors.full_messages).to include "First name is invalid"
+    end
+    it "名字（フリガナ）がカタカナでないと登録できない" do
+      user = FactoryBot.build(:user)
+      user.last_name_f = "川上"
+      user.valid?
+      expect(user.errors.full_messages).to include "Last name f is invalid"
+    end
+    it "名前（フリガナ）がカタカナでないとと登録できない" do
+      user = FactoryBot.build(:user)
+      user.first_name_f = "洋平"
+      user.valid?
+      expect(user.errors.full_messages).to include "First name f is invalid"
+    end
+    it "誕生日が入力されていなければ登録できない" do
+      user = FactoryBot.build(:user)
+      user.birth_day = ""
+      user.valid?
+      expect(user.errors.full_messages).to include "Birth day can't be blank"
+    end
   end
 end
