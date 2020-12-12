@@ -6,7 +6,6 @@ RSpec.describe User, type: :model do
   describe 'ユーザーの新規登録' do
     context '新規登録できるとき' do
       it 'nick_name, password, password_confirmation, email, first_name, last_name, first_name_f, last_name_f, birth_が存在すれば登録できる' do
-        # binding.pry
         expect(@user.valid?).to eq true
       end
     end
@@ -50,7 +49,7 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include "Password is invalid"
       end
-      it "パスワードが6文字以下の場合、登録できない" do
+      it "パスワードが6文字未満の場合、登録できない" do
         @user.password = "aaa00"
         @user.password_confirmation = "aaa00"
         @user.valid?
