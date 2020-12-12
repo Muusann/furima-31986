@@ -11,17 +11,21 @@ class User < ApplicationRecord
   end
 
   with_options presence: true, format: { with: /\A[\p{katakana}\u{30fc}]+\z/ } do
-  validates :first_name_f, presence: true
-  validates :last_name_f, presence: true
+  validates :first_name_f
+  validates :last_name_f
+  
   end
 
-  validates :nick_name, presence: true
-  
+  with_options presence: true do
+  validates :nick_name
+  validates :birth_day
+  end
+
   with_options presence: true, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{6,100}+\z/i } do
   validates :password
   end
 
-  validates :birth_day, presence: true
+  
 end
 
 

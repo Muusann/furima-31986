@@ -5,7 +5,8 @@ RSpec.describe User, type: :model do
   end
   describe 'ユーザーの新規登録' do
     context '新規登録できるとき' do
-      it 'nick_name, password, password_confirmation, email, first_name, last_name, first_name_f, last_name_f, birth_dayが存在すれば登録できる' do
+      it 'nick_name, password, password_confirmation, email, first_name, last_name, first_name_f, last_name_f, birth_が存在すれば登録できる' do
+        # binding.pry
         expect(@user.valid?).to eq true
       end
     end
@@ -72,10 +73,20 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include "Last name can't be blank"
       end
+      it "名字（フリガナ）が空では登録できない" do
+        @user.last_name_f = ""
+        @user.valid?
+        expect(@user.errors.full_messages).to include "Last name f can't be blank"
+      end
       it "名前が空では登録できない" do
         @user.first_name = ""
         @user.valid?
         expect(@user.errors.full_messages).to include "First name can't be blank"
+      end
+      it "名前（フリガナ）が空では登録できない" do
+        @user.first_name_f = ""
+        @user.valid?
+        expect(@user.errors.full_messages).to include "First name f can't be blank"
       end
       it "名字が全角でないと登録できない" do
         @user.last_name = "kawakami"
