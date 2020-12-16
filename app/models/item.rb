@@ -1,11 +1,13 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
 
-  validates :category_id, numericality: { other_than: 1 }
-  validates :delivery_date_id, numericality: { other_than: 1 } 
-  validates :delivery_fee_id, numericality: { other_than: 1 } 
-  validates :condition_id, numericality: { other_than: 1 } 
-  validates :prefecture_id, numericality: { other_than: 1 } 
+  with_options numericality: { other_than:1 } do
+  validates :category_id
+  validates :delivery_date_id
+  validates :delivery_fee_id
+  validates :condition_id
+  validates :prefecture_id
+  end
 
   has_one_attached :image
   belongs_to       :user
