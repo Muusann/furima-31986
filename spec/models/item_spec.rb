@@ -22,12 +22,12 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include "Name can't be blank"
       end
       it 'category_idが1だと登録できない' do
-        @item.category_id = "1"
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include "Category must be other than 1"
       end
       it 'condition_idが1だと登録できない' do
-        @item.condition_id = "1"
+        @item.condition_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include "Condition must be other than 1"
       end
@@ -42,17 +42,17 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include "Price is not a number"
       end
       it 'delivery_fee_idが1だと登録できない' do
-        @item.delivery_fee_id = "1"
+        @item.delivery_fee_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include "Delivery fee must be other than 1"
       end
       it 'delivery_date_idが1だと登録できない' do
-        @item.delivery_date_id = "1"
+        @item.delivery_date_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include "Delivery date must be other than 1"
       end
       it 'prefecture_id が1だと登録できない' do
-        @item.prefecture_id = "1"
+        @item.prefecture_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include "Prefecture must be other than 1"
       end
