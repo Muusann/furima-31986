@@ -1,15 +1,21 @@
 class PurchasController < ApplicationController
+  before_action :authenticate_user! 
+  before_action :item
+  before_action :item1
 
+
+  
   def index
    @address_purcha = PurchaAddress.new
-   @item = Item.find(params[:item_id])
   end
 
   def create
+   
     @address_purcha = PurchaAddress.new(purcha_params)
     if @address_purcha.valid?
+      pay
       @address_purcha.save
-      redirect_to action: :index
+      redirect_to root_path action: :index
     else
       render action: :index
     end
@@ -18,7 +24,26 @@ class PurchasController < ApplicationController
 private
 
   def purcha_params
-    params.require(:purcha_address).permit(:name, :nickname, :purcha_id, :post_code, :phone_number, :prefecture_id, :address_number, :municipalities, :building ).merge(user_id:current_user.id,item_id: params[:item_id])
+    params.require(:purcha_address).permit(:post_code, :purchas_id,:phone_number, :prefecture_id, :address_number, :municipalities, :building ).merge(user_id:current_user.id,item_id: params[:item_id], token: params[:token])
   end
 
+  def item
+    @item = Item.find(params[:item_id])
+  end
+
+  def item1
+    # ログイン済みのユーザーと出品者が一致
+    if current_user.id == @item.user.id || @item.purcha != nil
+      redirect_to root_path
+    end
+  end
+
+  def pay
+    Payjp.api_key = "sk_test_fe7a2586ce1fd4c001e69ebf"
+    Payjp::Charge.create(
+      amount: @item.price,
+      card: purcha_params[:token],
+      currency: 'jpy'
+    )
+  end
 end
