@@ -55,6 +55,16 @@ require 'rails_helper'
       @address_purcha.valid?
       expect(@address_purcha.errors.full_messages).to include "Token can't be blank"
       end
+      it 'user_idがないと購入できない' do
+      @address_purcha.user_id = ""
+      @address_purcha.valid?
+      expect(@address_purcha.errors.full_messages).to include "User can't be blank"
+      end
+      it 'item_idがないと購入できない' do
+      @address_purcha.item_id = ""
+      @address_purcha.valid?
+      expect(@address_purcha.errors.full_messages).to include "Item can't be blank"
+      end
     end
   end
 end

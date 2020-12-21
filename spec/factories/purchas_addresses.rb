@@ -6,5 +6,7 @@ FactoryBot.define do
    phone_number            {"22222222222"}
    municipalities          {"2"}
    token                   {'test'}
+   user_id                 {2}
+   item_id                 {2}
   end
 end
