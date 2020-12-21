@@ -11,6 +11,7 @@ class Item < ApplicationRecord
 
   has_one_attached :image
   belongs_to       :user
+  has_one          :purcha
 
   belongs_to_active_hash :category
   belongs_to_active_hash :delivery_date
