@@ -1,7 +1,7 @@
 class PurchasController < ApplicationController
   before_action :authenticate_user! 
   before_action :item
-  before_action :item1
+  before_action :path_restriction
 
 
   
@@ -31,7 +31,7 @@ private
     @item = Item.find(params[:item_id])
   end
 
-  def item1
+  def path_restriction
     # ログイン済みのユーザーと出品者が一致
     if current_user.id == @item.user.id || @item.purcha != nil
       redirect_to root_path

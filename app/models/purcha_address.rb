@@ -3,7 +3,7 @@ class PurchaAddress
     attr_accessor :name, :nickname, :user_id, :post_code, :phone_number, :prefecture_id, :address_number, :municipalities, :building, :item_id, :token
 
     with_options presence: true do
-      validates :prefecture_id
+      validates :prefecture_id, numericality: { other_than:1 }
       validates :address_number
       validates :post_code, format: { with: /\A\d{3}[-]\d{4}\z/ }
       validates :phone_number, format: { with: /\A\d{10,11}\z/ }
