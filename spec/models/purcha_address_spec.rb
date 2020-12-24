@@ -18,57 +18,57 @@ require 'rails_helper'
       it '都道府県入力がないと購入できない' do
       @address_purcha.prefecture_id = ""
       @address_purcha.valid?
-      expect(@address_purcha.errors.full_messages).to include "Prefecture can't be blank"
+      expect(@address_purcha.errors.full_messages).to include "都道府県を入力してください"
       end
       it 'prefecture_idが1だと購入できない' do
       @address_purcha.prefecture_id = 1
       @address_purcha.valid?
-      expect(@address_purcha.errors.full_messages).to include "Prefecture must be other than 1"
+      expect(@address_purcha.errors.full_messages).to include "都道府県を入力してください"
       end
       it '住所入力がないと購入できない' do
       @address_purcha.address_number = ""
       @address_purcha.valid?
-      expect(@address_purcha.errors.full_messages).to include "Address number can't be blank"
+      expect(@address_purcha.errors.full_messages).to include "番地を入力してください"
       end
       it '郵便番号入力がないと購入できない' do
       @address_purcha.post_code = ""
       @address_purcha.valid?
-      expect(@address_purcha.errors.full_messages).to include "Post code can't be blank"
+      expect(@address_purcha.errors.full_messages).to include "郵便番号を入力してください"
       end
       it '郵便番号にハイフンが入っていないと購入できない' do
       @address_purcha.post_code = "2222222"
       @address_purcha.valid?
-      expect(@address_purcha.errors.full_messages).to include "Post code is invalid"
+      expect(@address_purcha.errors.full_messages).to include "郵便番号は不正な値です"
       end
       it '電話番号入力がないと購入できない' do
       @address_purcha.phone_number = ""
       @address_purcha.valid?
-      expect(@address_purcha.errors.full_messages).to include "Phone number can't be blank"
+      expect(@address_purcha.errors.full_messages).to include "電話番号を入力してください"
       end
       it '電話番号が11桁以内でないと購入できない' do
       @address_purcha.phone_number = "222222222222"
       @address_purcha.valid?
-      expect(@address_purcha.errors.full_messages).to include "Phone number is invalid"
+      expect(@address_purcha.errors.full_messages).to include "電話番号は不正な値です"
       end
       it '市町村入力がないと購入できない' do
       @address_purcha.municipalities = ""
       @address_purcha.valid?
-      expect(@address_purcha.errors.full_messages).to include "Municipalities can't be blank"
+      expect(@address_purcha.errors.full_messages).to include "市町村を入力してください"
       end
       it 'トークン情報がないと購入できない' do
       @address_purcha.token = ""
       @address_purcha.valid?
-      expect(@address_purcha.errors.full_messages).to include "Token can't be blank"
+      expect(@address_purcha.errors.full_messages).to include "クレジットカード情報を入力してください"
       end
       it 'user_idがないと購入できない' do
       @address_purcha.user_id = ""
       @address_purcha.valid?
-      expect(@address_purcha.errors.full_messages).to include "User can't be blank"
+      expect(@address_purcha.errors.full_messages).to include "Userを入力してください"
       end
       it 'item_idがないと購入できない' do
       @address_purcha.item_id = ""
       @address_purcha.valid?
-      expect(@address_purcha.errors.full_messages).to include "Item can't be blank"
+      expect(@address_purcha.errors.full_messages).to include "Itemを入力してください"
       end
     end
   end

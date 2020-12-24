@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
 
-  with_options numericality: { other_than:1 } do
+  with_options numericality: { other_than: 1 , message: 'を選択してください' } do
   validates :category_id
   validates :delivery_date_id
   validates :delivery_fee_id
